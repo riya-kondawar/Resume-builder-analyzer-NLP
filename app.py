@@ -66,8 +66,8 @@ st.sidebar.title("📌 Navigation")
 page_options = [
     "🏠 Home", 
     "🛠 Build Your Resume", 
-    "📄 Upload Resume", 
-    "📊 Job Match",
+    "📄 Resume Analysis", 
+    # "📊 Job Match",
     "🤖 Career Chatbot"
 ]
 
@@ -86,7 +86,7 @@ if st.session_state.current_page == "🏠 Home":
     home()
 elif st.session_state.current_page == "🛠 Build Your Resume":
     build_resume()
-elif st.session_state.current_page == "📄 Upload Resume":
+elif st.session_state.current_page == "📄 Resume Analysis":
     upload_resume()
 elif st.session_state.current_page == "📊 Job Match":
     job_match()
