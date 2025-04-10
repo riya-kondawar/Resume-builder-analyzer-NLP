@@ -41,3 +41,5 @@ def job_match():
                     st.write("**Description:** Looking for a data scientist with 3+ years experience...")
                     if st.button(f"Apply for {job['title']}", key=job['title']):
                         st.success("Application submitted! (Simulated)")
+
+

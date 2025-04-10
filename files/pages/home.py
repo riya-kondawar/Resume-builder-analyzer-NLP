@@ -77,11 +77,14 @@ def home():
         </div>
         """, unsafe_allow_html=True)
         
+        # if st.button("Get Started Now →", type="primary", use_container_width=True):
+            # st.session_state.page = "🛠 Build Your Resume"
+            # st.rerun()
+
         if st.button("Get Started Now →", type="primary", use_container_width=True):
-            st.session_state.navigation = "📄 Upload Resume"
+            st.session_state.current_page = "🛠 Build Your Resume"
             st.rerun()
 
-    # Divider
     st.divider()
     
     # How It Works Section
@@ -154,58 +157,3 @@ def home():
 if __name__ == "__main__":
     home()
 
-
-
-
-
-
-
-
-
-
-
-# import streamlit as st
-
-# def home():
-#     st.title("🏠 Welcome to Resume Builder & Analyzer")
-#     st.write("This app helps you create, analyze, and match resumes with job descriptions.")
-
-# def home():
-#     """Home Page"""
-#     st.title("🚀 Resume Builder & Analyzer")
-#     st.write("AI-powered resume insights, skill extraction & job recommendations.")
-#     st.write("This app helps you create, analyze, and match resumes with job descriptions.")
-
-#     # Layout
-#     col1, col2 = st.columns([2, 3])
-#     with col1:
-#         st.image("https://www.resume-now.com/sapp/uploads/2024/08/resume-example-senior-financial-analyst.png", width=400)
-    
-#     with col2:
-#         st.markdown("""
-#         ✅ **Extract Key Skills & Experience**  
-#         ✅ **AI-powered Job Recommendations**  
-#         ✅ **PDF & DocX Resume Support**  
-#         ✅ **Instant Job Matching & Score Calculation**  
-#         ✅ **Download AI-generated Resume Report**  
-#         """)
-    
-#     if st.button("Try Now 🚀"):
-#         st.session_state.navigation = "📄 Upload Resume"
-#         st.experimental_rerun()
-
-#     st.write("---")
-#     st.markdown("### 🔍 How It Works?")
-#     grid_col1, grid_col2, grid_col3 = st.columns(3)
-
-#     with grid_col1:
-#         st.image("https://img.icons8.com/?size=150&id=103982&format=png&color=000000")
-#         st.write("**Step 1:** Upload your Resume")
-
-#     with grid_col2:
-#         st.image("https://img.icons8.com/color/150/ai.png")
-#         st.write("**Step 2:** AI Analyzes Key Information")
-
-#     with grid_col3:
-#         st.image("https://img.icons8.com/color/150/job.png")
-#         st.write("**Step 3:** Get Matched to Jobs!")

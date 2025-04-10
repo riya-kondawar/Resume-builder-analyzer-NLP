@@ -154,7 +154,7 @@ def generate_resume_pdf(data, template):
     pdf.cell(0, 10, data["name"], ln=True)
     pdf.ln(5)
     
-    # Contact information
+    # Contact 
     pdf.set_font('DejaVu', '', 10)
     contact_info = []
     if data.get("email"): contact_info.append(data["email"])

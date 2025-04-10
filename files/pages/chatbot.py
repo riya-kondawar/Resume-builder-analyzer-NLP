@@ -13,7 +13,6 @@ import json
 from datetime import datetime
 from packaging import version
 
-# ✅ Load API Key Securely
 load_dotenv()
 API_KEY = os.getenv("GEMINI_API_KEY")
 
@@ -24,7 +23,7 @@ if not API_KEY:
 # ✅ Configure Google AI
 genai.configure(api_key=API_KEY)
 
-# ✅ Allowed Topics with enhanced categorization
+# Limited access to the API
 TOPIC_CATEGORIES = {
     "Resume & Job Application": [
         "resume", "cv", "cover letter", "job application", "LinkedIn", 
@@ -47,13 +46,11 @@ TOPIC_CATEGORIES = {
 
 ALLOWED_TOPICS = [topic for sublist in TOPIC_CATEGORIES.values() for topic in sublist]
 
-# ✅ Greetings with more variations
 GREETINGS = [
     "hi", "hello", "hey", "good morning", "good afternoon", 
     "good evening", "greetings", "hi there", "hello there"
 ]
 
-# ✅ Initialize session state variables
 def init_session_state():
     if "messages" not in st.session_state:
         st.session_state.messages = []
@@ -77,7 +74,7 @@ def init_session_state():
             "education": []
         }
 
-# ✅ Text extraction functions
+# Text extraction 
 def extract_text_from_pdf(file):
     text = ""
     try:
@@ -96,7 +93,6 @@ def extract_text_from_docx(file):
         st.error(f"DOCX extraction error: {str(e)}")
         return ""
 
-# ✅ Enhanced similarity check
 def similar(a, b):
     return SequenceMatcher(None, a, b).ratio()
 
@@ -104,11 +100,9 @@ def is_relevant(question):
     """Enhanced relevance checking with fuzzy matching"""
     question_lower = question.lower()
     
-    # Check greetings
     if any(greeting == question_lower for greeting in GREETINGS):
         return True
         
-    # Check for direct matches
     for topic in ALLOWED_TOPICS:
         if topic in question_lower:
             return True
