@@ -19,5 +19,8 @@ COPY . .
 # Expose port Streamlit runs on
 EXPOSE 8080
 
+RUN python -m spacy download en_core_web_sm
+
 # Run Streamlit app
 CMD ["streamlit", "run", "app.py", "--server.port=8080", "--server.enableCORS=false"]
+

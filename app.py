@@ -20,6 +20,11 @@ from files.pages.job_match import job_match
 from files.pages.home import home
 from files.pages.chatbot import chatbot
 
+import spacy
+import en_core_web_sm
+
+nlp = en_core_web_sm.load()
+
 
 # Garbage Collection
 gc.collect()
