@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume</title>
+  <style>
+    body {
+      font-family: "Times New Roman", serif;
+      margin: 40px;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      font-size: 28px;
+    }
+    h2 {
+      font-size: 20px;
+      color: #444;
+      border-bottom: 2px solid #000;
+      padding-bottom: 5px;
+      margin-top: 20px;
+    }
+    .contact-info {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      font-size: 16px;
+    }
+    .contact-info a {
+      text-decoration: none;
+      color: #0077b6;
+    }
+    ul {
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>{{ name }}</h1>
+  <div class="contact-info">
+    <p>Email: <a href="mailto:{{ email }}">{{ email }}</a></p>
+    <p>Phone: {{ phone }}</p>
+    <p>LinkedIn: <a href="{{ linkedin }}">{{ linkedin }}</a></p>
+    <p>Portfolio: <a href="{{ portfolio }}">{{ portfolio }}</a></p>
+  </div>
+  <p>Address: {{ address }}</p>
+  
+  <h2>Professional Summary</h2>
+  <p>{{ summary }}</p>
+  
+  <h2>Education</h2>
+  <p>{{ education }}</p>
+  
+  <h2>Experience</h2>
+  <p>{{ experience }}</p>
+  
+  <h2>Skills</h2>
+  <!-- <ul>
+    {% for skill in skills %}
+      <li>{{ skill }}</li>
+    {% endfor %}
+  </ul>
+  
+  <h2>Certifications & Courses</h2>
+  <ul>
+    {% for certification in certifications %}
+      <li>{{ certification }}</li>
+    {% endfor %}
+  </ul>
+  
+  <h2>Projects</h2>
+  <ul>
+    {% for project in projects %}
+      <li>{{ project }}</li>
+    {% endfor %}
+  </ul> -->
+  
+  <p><strong>Technologies:</strong> {{ project_tech }}</p>
+  <p><strong>GitHub:</strong> <a href="{{ project_links }}">{{ project_links }}</a></p>
+  
+  <h2>Achievements & Awards</h2>
+  <!-- <ul>
+    {% for achievement in achievements %}
+      <li>{{ achievement }}</li>
+    {% endfor %}
+  </ul> -->
+  
+  <h2>Languages</h2>
+  <p>{{ languages }}</p>
+  
+  <h2>Volunteer Experience</h2>
+  <p>{{ volunteer }}</p>
+  
+  <h2>Hobbies & Interests</h2>
+  <p>{{ hobbies }}</p>
+  
+  <h2>References</h2>
+  <p>{{ references }}</p>
+</body>
+</html>
