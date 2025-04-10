@@ -1,7 +1,16 @@
 # Run command:
 # python -m streamlit run app.py
 
+
 import streamlit as st  # ✅ Import first
+
+st.set_page_config(
+    page_title="Resume Builder & Analyzer", 
+    page_icon="📄", 
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
 import os
 import joblib
 import gc
@@ -11,12 +20,6 @@ from files.pages.job_match import job_match
 from files.pages.home import home
 from files.pages.chatbot import chatbot
 
-st.set_page_config(
-    page_title="Resume Builder & Analyzer", 
-    page_icon="📄", 
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
 
 # Garbage Collection
 gc.collect()

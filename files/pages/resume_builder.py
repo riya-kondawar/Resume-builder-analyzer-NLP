@@ -3,6 +3,7 @@ from fpdf.fpdf import FPDF
 import os
 from datetime import datetime
 from PIL import Image
+from pathlib import Path
 import io
 import base64
 # from files.pages.templates.classic import render_classic_resume
@@ -20,8 +21,14 @@ class UnicodePDF(FPDF):
 def build_resume():
     """Build Resume"""
     st.title("Resume Builder")
-    st.write("Fill out the form below to generate your resume.")
+    st.markdown("### 📄 Create a Professional Resume like this")
+
+    image_url = "https://github.com/riya-kondawar/Resume-builder-analyzer-NLP/blob/main/assets/test-pg1.png"
+    st.image(image_url, caption="Example of a generated resume", use_container_width=True)
     
+    st.write("Fill out the form below to generate your resume.")
+
+
     # Initialize session state
     if "resume_data" not in st.session_state:
         st.session_state.resume_data = {
