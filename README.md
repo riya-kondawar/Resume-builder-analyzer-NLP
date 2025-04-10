@@ -25,50 +25,30 @@ SmartResume Pro is an AI-powered resume builder and analyzer with an integrated 
   - **Suggested modifications** to improve resume for the specific job.
 
 
-## activate virtual env:- .\venv\Scripts\Activate.ps1
 
-## pip install -r requirements.txt
 
-## pip freeze > requirements.txt
+# Recreate venv
+python -m venv venv
+venv\Scripts\activate  # (Windows)
 
-## streamlit run app.py
+# activate virtual env
+.\venv\Scripts\Activate.ps1
 
-or 
+# Delete venv folder
+rm -rf venv  # or use File Explorer
 
-## Run command:- python -m streamlit run app.py
+# Reinstall using fresh requirements
+pip freeze > requirements.txt
+pip install -r requirements.txt
+
+# Run command 
+python -m streamlit run app.py
+streamlit run app.py
 
 
 pip install pdfkit
 pip install jinja2
 
-
-
-
-
-
-
-
-
-
-<!-- ## Resume Builder
-- Take user data as input
-- Select a template for building a resume
-- Generate a resume with its ATS score
-
-## Resume Upload & Analyzer
-- Get the resume from user
-- Save the resume into the system
-- PDF extracting
-- Resume Parsing 
-- Define Skills
-- Define Courses & Videos
-
-## Resume Analyze wrt Job Description (JD)
- -->
-
-
-
 ## Alternative Resume websites:
 1. https://www.resume-now.com/ 
-2. 
 
