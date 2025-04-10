@@ -29,10 +29,8 @@ streamlit-faker
 streamlit-embedcode
 streamlit-keyup
 streamlit-toggle-switch
-streamlit-camera-input-live
 streamlit-vertical-slider
 streamlit-image-coordinates
-streamlit-lottie
 
 # --- Web & APIs ---
 requests

@@ -1,0 +1,20 @@
+runtime: custom
+env: flex
+
+entrypoint: streamlit run app.py --server.port=8080 --server.enableCORS=false
+
+runtime_config:
+  python_version: 3.10
+
+resources:
+  cpu: 1
+  memory_gb: 2
+  disk_size_gb: 10
+
+automatic_scaling:
+  min_num_instances: 1
+  max_num_instances: 2
+
+automatic_scaling:
+  min_instances: 1
+  max_instances: 2
