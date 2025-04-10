@@ -11,7 +11,6 @@ from files.pages.job_match import job_match
 from files.pages.home import home
 from files.pages.chatbot import chatbot
 
-# ✅ Set page config (must be the first Streamlit command)
 st.set_page_config(
     page_title="Resume Builder & Analyzer", 
     page_icon="📄", 
@@ -19,10 +18,9 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# ✅ Garbage Collection
+# Garbage Collection
 gc.collect()
 
-# ✅ Download fonts if not present
 if not os.path.exists("files/fonts/DejaVuSans.ttf"):
     import requests
     from zipfile import ZipFile
@@ -39,7 +37,7 @@ if not os.path.exists("files/fonts/DejaVuSans.ttf"):
     os.rename("./files/fonts/dejavu-fonts-ttf-2.37/ttf/DejaVuSans.ttf", "files/fonts/DejaVuSans.ttf")
     os.rename("./files/fonts/dejavu-fonts-ttf-2.37/ttf/DejaVuSans-Bold.ttf", "files/fonts/DejaVuSans-Bold.ttf")
 
-# ✅ Load trained models with error handling
+# models 
 model, model2, model3 = None, None, None
 
 def load_models():
@@ -55,27 +53,39 @@ def load_models():
 
 load_models()
 
-# ✅ Sidebar Navigation
+# session state
+if 'current_page' not in st.session_state:
+    st.session_state.current_page = "🏠 Home"
+
+# Navigation sidebar
 st.sidebar.title("📌 Navigation")
-page = st.sidebar.radio(
-    "Select a Page", 
-    [
-        "🏠 Home", 
-        "🛠 Build Your Resume", 
-        "📄 Upload Resume", 
-        "📊 Job Match",
-        "🤖 Career Chatbot"
-    ]
+
+page_options = [
+    "🏠 Home", 
+    "🛠 Build Your Resume", 
+    "📄 Upload Resume", 
+    "📊 Job Match",
+    "🤖 Career Chatbot"
+]
+
+selected_page = st.sidebar.radio(
+    "Select a Page",
+    options=page_options,
+    index=page_options.index(st.session_state.current_page)
 )
 
-# ✅ Route to respective pages
-if page == "🏠 Home":
+if selected_page != st.session_state.current_page:
+    st.session_state.current_page = selected_page
+    st.rerun()
+
+# Route for navigation
+if st.session_state.current_page == "🏠 Home":
     home()
-elif page == "🛠 Build Your Resume":
+elif st.session_state.current_page == "🛠 Build Your Resume":
     build_resume()
-elif page == "📄 Upload Resume":
+elif st.session_state.current_page == "📄 Upload Resume":
     upload_resume()
-elif page == "📊 Job Match":
+elif st.session_state.current_page == "📊 Job Match":
     job_match()
-elif page == "🤖 Career Chatbot":
+elif st.session_state.current_page == "🤖 Career Chatbot":
     chatbot()
