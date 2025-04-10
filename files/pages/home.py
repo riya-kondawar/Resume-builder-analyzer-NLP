@@ -5,7 +5,6 @@ from streamlit_extras.colored_header import colored_header
 def home():
     """Home Page - Resume Analyzer & Career Companion"""
     
-    # Custom CSS for better styling
     st.markdown("""
     <style>
         .big-font {
@@ -29,7 +28,6 @@ def home():
     </style>
     """, unsafe_allow_html=True)
 
-    # Hero Section
     colored_header(
         label="🚀 SmartResume Pro - AI-powered Resume Builder, Analyzer & Assistant!",
         description="",
@@ -43,7 +41,6 @@ def home():
     </div>
     """, unsafe_allow_html=True)
     
-    # Layout
     col1, col2 = st.columns([2, 3])
     with col1:
         st.image(
@@ -87,7 +84,6 @@ def home():
 
     st.divider()
     
-    # How It Works Section
     st.markdown("### 📲 How It Works")
     grid_col1, grid_col2, grid_col3 = st.columns(3)
 
