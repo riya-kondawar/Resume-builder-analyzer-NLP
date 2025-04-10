@@ -31,7 +31,7 @@ def home():
 
     # Hero Section
     colored_header(
-        label="🚀 AI-Powered Resume Analyzer Pro",
+        label="🚀 SmartResume Pro - AI-powered Resume Builder, Analyzer & Assistant!",
         description="",
         color_name="blue-70"
     )
@@ -100,8 +100,8 @@ def home():
             st.markdown("""
             <div class='step-card'>
             <h4>Step 1</h4>
-            <strong>Upload Your Resume</strong><br>
-            PDF, DOCX or plain text formats supported
+            <strong>Build Your Resume</strong><br>
+            Create using our built-in Professional Resume Builder
             </div>
             """, unsafe_allow_html=True)
 
@@ -128,31 +128,31 @@ def home():
             st.markdown("""
             <div class='step-card'>
             <h4>Step 3</h4>
-            <strong>Get Insights</strong><br>
-            View analysis results and job matches instantly
+            <strong>Get Career Guidance</strong><br>
+                Chat with our AI-powered Career Bot for personalized advice
             </div>
             """, unsafe_allow_html=True)
 
-    # Testimonials Section (Optional)
-    st.divider()
-    st.markdown("### ❤️ Trusted by Job Seekers Worldwide")
-    testimonial_col1, testimonial_col2 = st.columns(2)
+    # # Testimonials Section (Optional)
+    # st.divider()
+    # st.markdown("### ❤️ Trusted by Job Seekers Worldwide")
+    # testimonial_col1, testimonial_col2 = st.columns(2)
     
-    with testimonial_col1:
-        with st.container(border=True):
-            st.markdown("""
-            ⭐⭐⭐⭐⭐  
-            "Landeda job at Google after optimizing my resume with their suggestions!"
-            """)
-            st.caption("- Sarah K., Software Engineer")
+    # with testimonial_col1:
+    #     with st.container(border=True):
+    #         st.markdown("""
+    #         ⭐⭐⭐⭐⭐  
+    #         "Landeda job at Google after optimizing my resume with their suggestions!"
+    #         """)
+    #         st.caption("- Sarah K., Software Engineer")
 
-    with testimonial_col2:
-        with st.container(border=True):
-            st.markdown("""
-            ⭐⭐⭐⭐⭐  
-            "The skill extraction helped me identify gaps in my profile I never noticed."
-            """)
-            st.caption("- Michael T., Marketing Director")
+    # with testimonial_col2:
+    #     with st.container(border=True):
+    #         st.markdown("""
+    #         ⭐⭐⭐⭐⭐  
+    #         "The skill extraction helped me identify gaps in my profile I never noticed."
+    #         """)
+    #         st.caption("- Michael T., Marketing Director")
 
 if __name__ == "__main__":
     home()
