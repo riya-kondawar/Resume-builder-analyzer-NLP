@@ -52,6 +52,7 @@ GREETINGS = [
 ]
 
 def init_session_state():
+    print("✅ init_session_state() was called")
     if "messages" not in st.session_state:
         st.session_state.messages = []
     if "conversation" not in st.session_state:
@@ -73,6 +74,7 @@ def init_session_state():
             "experience": [],
             "education": []
         }
+
 
 # Text extraction 
 def extract_text_from_pdf(file):
@@ -218,7 +220,7 @@ def chatbot():
         key="resume_uploader"
     )
     
-    if uploaded_file and not st.session_state.resume_data["text"]:
+    if uploaded_file and not st.session_state.resume_data.get("text", ""):
         with st.spinner("Analyzing your resume..."):
             if uploaded_file.type == "application/pdf":
                 text = extract_text_from_pdf(uploaded_file)

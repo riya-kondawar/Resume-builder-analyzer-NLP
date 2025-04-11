@@ -65,6 +65,33 @@ load_models()
 if 'current_page' not in st.session_state:
     st.session_state.current_page = "🏠 Home"
 
+# Initialize session state keys
+if "resume_data" not in st.session_state:
+    st.session_state.resume_data = {
+        "text": "",
+        "skills": [],
+        "experience": [],
+        "education": []
+    }
+
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+if "conversation" not in st.session_state:
+    st.session_state.conversation = None
+
+if "last_api_call" not in st.session_state:
+    st.session_state.last_api_call = 0
+
+if "user_profile" not in st.session_state:
+    st.session_state.user_profile = {
+        "name": "",
+        "career_level": "",
+        "industry": "",
+        "skills": [],
+        "last_updated": None
+    }
+
 # Navigation sidebar
 st.sidebar.title("📌 Navigation")
 

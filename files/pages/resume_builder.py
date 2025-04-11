@@ -6,6 +6,8 @@ from PIL import Image
 from pathlib import Path
 import io
 import base64
+import re
+
 # from files.pages.templates.classic import render_classic_resume
 # from files.pages.templates.modern import render_modern_resume
 # from files.pages.templates.minimal import render_minimal_resume 
@@ -23,7 +25,7 @@ def build_resume():
     st.title("Resume Builder")
     st.markdown("### 📄 Create a Professional Resume like this")
 
-    image_url = "https://github.com/riya-kondawar/Resume-builder-analyzer-NLP/blob/main/assets/test-pg1.png"
+    image_url = "https://raw.githubusercontent.com/riya-kondawar/Resume-builder-analyzer-NLP/main/assets/test-pg1.png"
     st.image(image_url, caption="Example of a generated resume", use_container_width=True)
     
     st.write("Fill out the form below to generate your resume.")
@@ -72,7 +74,11 @@ def build_resume():
     # Input fields with better organization
     with st.expander("Personal Information", expanded=True):
         name = st.text_input("Full Name*", value=st.session_state.resume_data.get("name", ""))
-        email = st.text_input("Email Address*", value=st.session_state.resume_data["email"])
+        email = st.text_input("Email Address*", value=st.session_state.resume_data.get("email", ""))
+        # email validation
+        if email and not re.match(r"[^@]+@[^@]+\.[^@]+", email):
+            st.warning("⚠️ Please enter a valid email address.")
+
         phone = st.text_input("Phone Number", value=st.session_state.resume_data["phone"])
         linkedin = st.text_input("LinkedIn Profile", value=st.session_state.resume_data["linkedin"])
         portfolio = st.text_input("Portfolio/Website", value=st.session_state.resume_data["portfolio"])
@@ -139,8 +145,12 @@ def build_resume():
                 # Clean up temporary files
                 if pdf_file and os.path.exists(pdf_file):
                     os.remove(pdf_file)
-                if st.session_state.resume_data.get("photo_path") and os.path.exists(st.session_state.resume_data["photo_path"]):
-                    os.remove(st.session_state.resume_data["photo_path"])
+                try:
+                    if st.session_state.resume_data.get("photo_path") and os.path.exists(st.session_state.resume_data["photo_path"]):
+                        os.remove(st.session_state.resume_data["photo_path"])
+                except Exception as e:
+                    st.warning(f"Could not remove photo: {e}")
+
             except Exception as e:
                 st.error(f"Error generating PDF: {str(e)}")
                 if pdf_file and os.path.exists(pdf_file):
@@ -180,18 +190,24 @@ def generate_resume_pdf(data, template):
 
     # Horizontal line
     # Get PDF width
-    pdf_width = pdf.w  # Total width of the PDF
-    margin = pdf.l_margin  # Left margin of the PDF
-    # Calculate start and end points
+    # Horizontal line
+    pdf_width = pdf.w
+    margin = pdf.l_margin
     start_x = margin
-    line_width = pdf_width * 0.70
-    end_x = start_x + line_width
     y = pdf.get_y()  # Current vertical position
+
+    # ✅ Conditional line length
+    if data.get("photo_path") and os.path.exists(data["photo_path"]):
+        line_width = pdf_width * 0.70  # shorter line if photo exists
+    else:
+        line_width = pdf_width - 2 * margin  # full width line
+
+    end_x = start_x + line_width
+
     # Set line color and draw line
     pdf.set_draw_color(200, 200, 200)
     pdf.line(start_x, y, end_x, y)
-    pdf.ln(10)  # Move to next line after the horizontal line
-
+    pdf.ln(10)
 
     # Helper function for sections
     def add_section(title, content, is_list=False):
