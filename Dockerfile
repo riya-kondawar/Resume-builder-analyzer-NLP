@@ -27,6 +27,8 @@ RUN python -m spacy link en_core_web_sm en_core_web_sm
 
 # Copy app source code
 COPY . .
+COPY .env .env
+
 
 # Expose Streamlit port
 EXPOSE 8080
