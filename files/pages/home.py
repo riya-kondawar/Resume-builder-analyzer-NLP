@@ -10,13 +10,13 @@ def load_model():
         return model
     except Exception as e:
         if "118" in str(e):
-            st.warning("❌ Error loading models: 118 — Ignored")
-            return None
+            return None  # ✅ Silently ignore and skip showing anything
         else:
             st.error("⚠️ Error occurred while loading the model. Please reload.")
             if st.button("🔄 Reload App"):
                 st.experimental_rerun()
             st.stop()
+
 
 def home(model=None):
     """Home Page - Resume Analyzer & Career Companion"""

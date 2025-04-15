@@ -74,6 +74,14 @@ def init_session_state():
             "experience": [],
             "education": []
         }
+    if st.session_state.conversation is None:
+        try:
+            st.session_state.conversation = genai.GenerativeModel("gemini-1.5-flash").start_chat(history=[])
+        except Exception as e:
+            if "118" in str(e):
+                st.session_state.conversation = None
+            else:
+                st.session_state.conversation = None
 
 
 # Text extraction 
@@ -127,10 +135,16 @@ def safe_api_call(prompt):
     if current_time - st.session_state.last_api_call < 1:
         time.sleep(1 - (current_time - st.session_state.last_api_call))
     
-    # Initialize conversation if not exists
     if st.session_state.conversation is None:
-        st.session_state.conversation = genai.GenerativeModel("gemini-1.5-flash").start_chat(history=[])
-    
+        try:
+            st.session_state.conversation = genai.GenerativeModel("gemini-1.5-flash").start_chat(history=[])
+        except Exception as e:
+            if "118" in str(e):
+                st.session_state.conversation = None  # Silent fail
+            else:
+                st.warning("⚠️ Gemini model couldn't be loaded. Try again later.")
+                st.stop()
+
     # Make the API call
     response = st.session_state.conversation.send_message(prompt)
     st.session_state.last_api_call = time()
