@@ -1,6 +1,28 @@
-# 📄 NLP Resume Builder, Analyzer & Parser
+# 📄 SmartResume Pro
 
-SmartResume Pro is an AI-powered resume builder and analyzer with an integrated chatbot for user assistance. It offers resume parsing, skill extraction, ATS compatibility checks, and automated PDF generation.
+[![Streamlit App Live Demo](assets/ss-home.png)](https://riya-resume-builder.streamlit.app/)
+
+> SmartResume Pro is an AI-powered resume builder and analyzer with an integrated chatbot for user assistance. It offers resume parsing, skill extraction, ATS compatibility checks, and automated PDF generation.
+
+---
+
+## 📸 Screenshots
+
+![Home Page](assets/ss-home.png)  
+![Resume Builder](assets/ss-builder.png)  
+![Analysis Dashboard](assets/test-pg1.png)  
+![AI Chatbot](assets/ss-chatbot1.png)
+
+---
+
+## ✨ Key Features
+
+- 🚀 **Smart Builder**: Create ATS-optimized resumes from templates  
+- 🧠 **Resume Analysis**: Extract skills, experience, and education using NLP  
+- 🧾 **Job Matching**: Match resumes with job descriptions  
+- 💬 **AI Chatbot**: Get personalized career advice  
+
+---
 
 ## **1️⃣ Resume Builder**
 - Users input personal, educational, and professional details.
@@ -24,31 +46,43 @@ SmartResume Pro is an AI-powered resume builder and analyzer with an integrated 
   - **Missing skills & keywords** that should be added.
   - **Suggested modifications** to improve resume for the specific job.
 
+---
 
+## 🛠️ Quick Start
 
-
-# Recreate venv
+```bash
+git clone https://github.com/riya-kondawar/Resume-builder-analyzer-NLP.git
+cd Resume-builder-analyzer-NLP
 python -m venv venv
-venv\Scripts\activate  # (Windows)
-
-# activate virtual env
-.\venv\Scripts\Activate.ps1
-
-# Delete venv folder
-rm -rf venv  # or use File Explorer
-
-# Reinstall using fresh requirements
-pip freeze > requirements.txt
+.\venv\Scripts\activate
 pip install -r requirements.txt
-
-# Run command 
-python -m streamlit run app.py
 streamlit run app.py
+```
 
+---
 
-pip install pdfkit
-pip install jinja2
+## 📚 Documentation
 
-## Alternative Resume websites:
-1. https://www.resume-now.com/ 
+📄 View full project report: [Report.docx](./assets/ReportFile-NLP.docx) 
 
+---
+
+## 🌟 Alternative refereences
+
+- [Novoresume](https://novoresume.com)  
+- [Zety](https://zety.com)  
+- [ResumeNow](https://www.resumenow.com)
+
+---
+
+## 🧰 Built With
+
+- **Python** 🐍  
+- **Streamlit** ⚡  
+- **Gemini AI** 🤖
+
+---
+
+## 👩‍💻 Author
+
+Made with ❤️ by [**Riya Kondawar**](https://github.com/riya-kondawar)
