@@ -1,26 +1,7 @@
 # 📄 SmartResume Pro
-
-[![Streamlit App Live Demo](assets/ss-home.png)](https://riya-resume-builder.streamlit.app/)
-
 > SmartResume Pro is an AI-powered resume builder and analyzer with an integrated chatbot for user assistance. It offers resume parsing, skill extraction, ATS compatibility checks, and automated PDF generation.
 
----
-
-## 📸 Screenshots
-
-![Home Page](assets/ss-home.png)  
-![Resume Builder](assets/ss-builder.png)  
-![Analysis Dashboard](assets/test-pg1.png)  
-![AI Chatbot](assets/ss-chatbot1.png)
-
----
-
-## ✨ Key Features
-
-- 🚀 **Smart Builder**: Create ATS-optimized resumes from templates  
-- 🧠 **Resume Analysis**: Extract skills, experience, and education using NLP  
-- 🧾 **Job Matching**: Match resumes with job descriptions  
-- 💬 **AI Chatbot**: Get personalized career advice  
+[![Streamlit App Live Demo](assets/ss-home.png)](https://riya-resume-builder.streamlit.app/)
 
 ---
 
@@ -45,6 +26,24 @@
   - **Match percentage** between resume & JD.
   - **Missing skills & keywords** that should be added.
   - **Suggested modifications** to improve resume for the specific job.
+
+---
+
+## 📸 Screenshots
+
+![Home Page](assets/ss-home.png)  
+![Resume Builder](assets/ss-builder.png)  
+![Analysis Dashboard](assets/test-pg1.png)  
+![AI Chatbot](assets/ss-chatbot1.png)
+
+---
+
+## ✨ Key Features
+
+- 🚀 **Smart Builder**: Create ATS-optimized resumes from templates  
+- 🧠 **Resume Analysis**: Extract skills, experience, and education using NLP  
+- 🧾 **Job Matching**: Match resumes with job descriptions  
+- 💬 **AI Chatbot**: Get personalized career advice
 
 ---
 
