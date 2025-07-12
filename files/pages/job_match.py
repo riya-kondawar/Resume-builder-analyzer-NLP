@@ -11,9 +11,9 @@ from collections import defaultdict
 def load_job_data():
     try:
         # Load your trained models
-        clf = joblib.load("./files/models/clf.pkl")
-        encoder = joblib.load("./files/models/encoder.pkl")
-        tfidf = joblib.load("./files/models/tfidf.pkl")
+        clf = joblib.load("./files/models/clf.joblib")
+        encoder = joblib.load("./files/models/encoder.joblib")
+        tfidf = joblib.load("./files/models/tfidf.joblib")
         
         # Sample job database (in production, replace with real database)
         jobs_db = pd.DataFrame([
